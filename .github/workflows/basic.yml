@@ -22,7 +22,7 @@ jobs:
     steps:
        - uses: actions/checkout@v2
        - name: Format some code
-       - run: echo Pretend im formatting some code!
+         run: echo Pretend im formatting some code!
         
   lint:
     name: lint job
@@ -30,7 +30,7 @@ jobs:
     steps:
        - uses: actions/checkout@v2
        - name: Lint some code
-       - run: |
+         run: |
           echo First I do this,
           echo then i do that.
   
