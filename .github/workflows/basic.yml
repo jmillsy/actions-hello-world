@@ -27,6 +27,7 @@ jobs:
   lint:
     name: lint job
     runs-on: ubuntu-latest
+    needs: fmt
     steps:
        - uses: actions/checkout@v2
        - name: Lint some code
