@@ -20,9 +20,7 @@ jobs:
     name: format job
     runs-on: ubuntu-latest
     steps:
-       #- uses: actions/checkout@v2
-       #- name: Format some code
-       #  run: echo Pretend im formatting some code!
-       run echo "::error file=./.yamllint.yaml,line=31,col=1::[empty-lines] too many blank lines (1 > 0)"
+       - name: yada
+         run: echo "::error file=./.yamllint.yaml,line=31,col=1::[empty-lines] too many blank lines (1 > 0)"
         
   
