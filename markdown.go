@@ -13,8 +13,10 @@ func main() {
 	}
 
 	defer f.Close()
+	
+	categoryId := os.Getenv("CATEGORY_ID")
 
-	f.WriteString("# Testing some output")
+	f.WriteString("# Testing some output - " + categoryId)
 
 	if err != nil {
 		log.Println(err)
