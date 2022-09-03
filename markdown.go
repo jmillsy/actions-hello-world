@@ -14,9 +14,14 @@ func main() {
 
 	defer f.Close()
 	
-	categoryId := os.Getenv("CATEGORY_ID")
+	
 
-	f.WriteString("# Testing some output - " + categoryId)
+	f.WriteString("# Testing some output - \n")
+	f.WriteString("## sdga \n")
+	f.WriteString("| a | b | c |\n")
+	f.WriteString("| - | - | - |\n")
+	f.WriteString("| a | b | c |\n")
+		  
 
 	if err != nil {
 		log.Println(err)
