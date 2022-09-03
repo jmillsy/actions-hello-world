@@ -10,3 +10,7 @@ jobs:
           go-version: '1.19'
           check-latest: true
       - run: go run markdown.go
+      - uses: actions/upload-artifact@v3
+        with:
+          name: markdown-report
+          path: testing.md
