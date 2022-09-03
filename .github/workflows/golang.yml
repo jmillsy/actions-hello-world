@@ -13,18 +13,17 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: markdown-report
-          path: testing.md
-      - name: Create a discussion for the report
+          path: testing.md    
+      - uses: abirismyname/create-discussion@v1.x
         id: create-discussion
-        uses: abirismyname/create-discussion@v1.x
-          env:
-            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
-          with:
-            title: Test tesing discussion title
-            body: |
-              this work??!
-            repository-id: ${{ secrets.REPO_ID }}
-            category-id: ${{ secrets.CATEGORY_ID }} 
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
+        with:
+          title: Test tesing discussion title
+          body: |
+            this work??!
+          repository-id: ${{ secrets.REPO_ID }}
+          category-id: ${{ secrets.CATEGORY_ID }} 
       - run: |
           echo discussion-id: ${{steps.create-discussion.outputs.discussion-id}} 
           echo discussion-url: ${{steps.create-discussion.outputs.discussion-url}}
