@@ -14,3 +14,17 @@ jobs:
         with:
           name: markdown-report
           path: testing.md
+      - uses: abirismyname/create-discussion@v1.x
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
+        with:
+          title: Test title
+          body: |
+            this work??!
+          repository-id: ${{ secrets.REPO_ID }}
+          category-id: ${{ secrets.CATEGORY_ID }} 
+      - run: |
+          echo discussion-id: ${{steps.create-discussion.outputs.discussion-id}} 
+          echo discussion-url: ${{steps.create-discussion.outputs.discussion-url}}
+        
+        
