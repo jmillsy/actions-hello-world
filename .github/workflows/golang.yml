@@ -13,8 +13,8 @@ jobs:
           title: Feelings
           body: |
             Let's talk!
-          repository-id: ${{ secrets.REPO_ID }}
-          category-id: ${{ secrets.CATEGORY_ID }}  
+          repository-id: 388144015
+          category-id: 38061234
       - name: Print discussion url and id
         run: |
           echo discussion-id: ${{steps.create-discussion.outputs.discussion-id}} 
