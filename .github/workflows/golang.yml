@@ -13,7 +13,7 @@ jobs:
           title: Feelings
           body: |
             Let's talk!
-          repository-id: 388144015
+          repository-id: ${{ secrets.REPO_ID }}
           category-id: ${{ secrets.CATEGORY_ID }}
       - name: Print discussion url and id
         run: |
