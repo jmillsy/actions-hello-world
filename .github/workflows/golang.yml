@@ -18,7 +18,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
         with:
-          title: Test title
+          title: Test tesing discussion title
           body: |
             this work??!
           repository-id: ${{ secrets.REPO_ID }}
