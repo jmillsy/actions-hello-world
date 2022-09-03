@@ -14,7 +14,7 @@ jobs:
           body: |
             Let's talk!
           repository-id: 388144015
-          category-id: DIC_kwDOFyKbj84CRMSy
+          category-id: ${{ secrets.CATEGORY_ID }}
       - name: Print discussion url and id
         run: |
           echo discussion-id: ${{steps.create-discussion.outputs.discussion-id}} 
