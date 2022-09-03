@@ -4,6 +4,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '1.19'
+          check-latest: true
+      - run: go run markdown.go
+      - uses: actions/upload-artifact@v3
+        with:
+          name: markdown-report
+          path: testing.md
+      
+      - name: Copy report
+        id: markdown-report
+        run: echo ::set-output name=markdown-report::$(cat testing.md)
+      
       - name: Create a new GitHub Discussion
         id: create-discussion
         uses: abirismyname/create-discussion@v1.x
@@ -11,8 +26,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
         with:
           title: Feelings
-          body: |
-            Let's talk!
+          body: ${{steps.markdown-report.outputs.markdown-report}} 
           repository-id: ${{ secrets.REPO_ID }}
           category-id: ${{ secrets.CATEGORY_ID }}
       - name: Print discussion url and id
