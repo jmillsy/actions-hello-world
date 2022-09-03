@@ -14,17 +14,19 @@ jobs:
         with:
           name: markdown-report
           path: testing.md
-      - uses: abirismyname/create-discussion@v1.x
+      - name: Create a new GitHub Discussion
         id: create-discussion
+        uses: abirismyname/create-discussion@v1.x
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
         with:
-          title: Test tesing discussion title
+          title: Feelings
           body: |
-            this work??!
+            Let's talk!
           repository-id: ${{ secrets.REPO_ID }}
-          category-id: ${{ secrets.CATEGORY_ID }} 
-      - run: |
+          category-id: ${{ secrets.CATEGORY_ID }}  
+      - name: Print discussion url and id
+        run: |
           echo discussion-id: ${{steps.create-discussion.outputs.discussion-id}} 
-          echo discussion-url: ${{steps.create-discussion.outputs.discussion-url}}
+          echo discussion-url: ${{steps.create-discussion.outputs.discussion-url}}     
           
