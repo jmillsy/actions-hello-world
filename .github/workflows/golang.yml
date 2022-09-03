@@ -9,7 +9,11 @@ jobs:
         with:
           go-version: '1.19'
           check-latest: true
-      - run: go run markdown.go
+      - name: Generate markdown
+        env: 
+          CATEGORY_ID: ${{ secrets.CATEGORY_ID }}
+        run: go run markdown.go
+        
       - uses: actions/upload-artifact@v3
         with:
           name: markdown-report
