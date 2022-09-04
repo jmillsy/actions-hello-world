@@ -30,7 +30,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
         with:
           title: Feelings
-          body: ${{steps.markdown-report.outputs.markdown-report}} 
+          body: $(cat testing.md)
           repository-id: ${{ secrets.REPO_ID }}
           category-id: ${{ secrets.CATEGORY_ID }}
       - name: Print discussion url and id
